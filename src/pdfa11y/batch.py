@@ -14,6 +14,7 @@ import html
 import json
 import os
 import re
+import shutil
 import tempfile
 import time
 from concurrent.futures import ProcessPoolExecutor, as_completed
@@ -205,7 +206,7 @@ def process_one(src: str, dst: str, verify: bool = True, validate: bool = True) 
                     rules = [r for r in rules if not (str(r["clause"]) == "5" and int(r["test"]) == 1)]
                 res["issues"] = [_issue_from_rule(r) for r in rules]
 
-            work.replace(dst_p) if work.drive == dst_p.drive else dst_p.write_bytes(work.read_bytes())
+            shutil.copyfile(work, dst_p)             # the temp folder may be on another disk than the destination
         res["output"] = str(dst_p)
         high = [i for i in res["issues"] if i["severity"] in ("high", "medium")]
         needs_look = bool(high or res["assumptions"] or res["review_notes"])
