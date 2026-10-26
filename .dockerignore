@@ -1,0 +1,9 @@
+.git
+.venv
+tools
+samples
+out
+build
+demo
+**/__pycache__
+*.pyc

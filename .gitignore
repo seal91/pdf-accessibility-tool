@@ -1,0 +1,29 @@
+# --- Python / environments
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+
+# --- Large or regenerable things that do NOT belong in the repo
+# Java + veraPDF: installed by deploy/install_tools.sh (Linux) or downloaded once (Windows)
+tools/
+# packaging output
+build/
+# scratch folder for experiments and test output
+out/
+
+# --- Real publications and everything generated from them (keep them out of Git)
+samples/
+demo/data-live/
+demo/data-ready/
+demo/evidence/batch/
+
+# --- Local app data, logs, editor settings
+*.log
+.claude/
+.vscode/
+.idea/
+*.tmp
+Thumbs.db

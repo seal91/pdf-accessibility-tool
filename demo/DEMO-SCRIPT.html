@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo script · PDF accessibility tool</title>
+<style>
+:root { --text:#1b1f27; --muted:#4b5361; --line:#b9c0cc; --soft:#dde1e8; --blue:#1d4ed8; --warn:#8a3b0a; --warnbg:#fff1e0; --ok:#166534; --okbg:#e4f4e8; }
+* { box-sizing: border-box; }
+body { margin:0; font:17px/1.55 "Segoe UI", system-ui, Arial, sans-serif; color:var(--text); background:#f6f7f9; }
+header, main { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
+header { padding-top: 1.5rem; }
+h1 { font-size: 2rem; margin: .2rem 0; }
+h2 { font-size: 1.45rem; margin: 2.2rem 0 .4rem; padding-top: .6rem; border-top: 3px solid var(--blue); }
+h3 { font-size: 1.1rem; margin: 1.4rem 0 .3rem; }
+p, li { margin: .3rem 0; }
+.muted { color: var(--muted); }
+nav ol { columns: 2; margin: .5rem 0 1rem; }
+a { color: var(--blue); }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.box { background:#fff; border:1px solid var(--soft); border-radius:8px; padding:.8rem 1.1rem; margin:.8rem 0; }
+.warn { background: var(--warnbg); border-color: #e8c9a6; }
+.ok { background: var(--okbg); border-color: #b5dcc0; }
+.time { display:inline-block; background:var(--blue); color:#fff; border-radius:999px; padding:0 .7rem; font-size:.9rem; font-weight:600; margin-left:.4rem; }
+table { width:100%; border-collapse: collapse; background:#fff; border:1px solid var(--line); margin:.6rem 0; }
+caption { text-align:left; font-weight:600; padding:.4rem 0; }
+th, td { padding:.5rem .7rem; border-bottom:1px solid var(--soft); text-align:left; vertical-align:top; }
+thead th { background:#eef1f6; }
+td.do { width: 48%; } td.say { width: 52%; color:#2a3140; }
+kbd { background:#eef1f6; border:1px solid var(--line); border-bottom-width:2px; border-radius:4px; padding:0 .35rem; font:.9em Consolas, monospace; }
+code { background:#eef1f6; padding:0 .3rem; border-radius:3px; font:.92em Consolas, monospace; }
+.check li { list-style:none; margin-left:-1.2rem; } .check li::before { content:"☐ "; }
+.q { font-weight:700; margin-top:1rem; }
+@media print { body { background:#fff; font-size:11pt; } h2 { break-after: avoid; } table, .box { break-inside: avoid; } nav { display:none; } }
+</style>
+</head>
+<body>
+<header>
+  <p class="muted">Demo kit · for the presenter</p>
+  <h1>Demo script: making our PDFs accessible, locally</h1>
+  <p class="muted">About 18 minutes plus questions. Written for a demo on this PC, shared over Teams to the room. Every number comes from real runs on our published publications (see <a href="evidence/results-at-a-glance.html">results at a glance</a>).</p>
+  <nav aria-label="Contents">
+    <ol>
+      <li><a href="#prep">Before you start (30 minutes ahead)</a></li>
+      <li><a href="#act1">1. Why, and the numbers</a></li>
+      <li><a href="#act2">2. Live: drag in the whole folder</a></li>
+      <li><a href="#act3">3. What did it do?</a></li>
+      <li><a href="#act4">4. The human part: image descriptions</a></li>
+      <li><a href="#act5">5. The tag editor</a></li>
+      <li><a href="#act6">6. The backlog: export everything</a></li>
+      <li><a href="#act7">7. Honest limits, and what next</a></li>
+      <li><a href="#qa">Likely questions, straight answers</a></li>
+      <li><a href="#wrong">If something goes wrong</a></li>
+      <li><a href="#private">Notes for you (not for the room)</a></li>
+    </ol>
+  </nav>
+</header>
+<main>
+
+<h2 id="prep">Before you start <span class="time">30 min ahead</span></h2>
+<div class="box">
+<ul class="check">
+  <li>Run <code>demo\reset-demo.bat</code> (about a minute). It rebuilds both demo libraries so everything is exactly as in this script.</li>
+  <li>Start <code>demo\start-demo-live.bat</code> (empty library, port 8765) <strong>and</strong> <code>demo\start-demo-ready.bat</code> (everything already processed, port 8766). Your browser opens on the live one; open the ready one in a second tab from the address in its window. The second is your safety net.</li>
+  <li>Open <code>demo\evidence\results-at-a-glance.html</code> in a third tab.</li>
+  <li>Open <code>demo\alt-text-drafts.txt</code> in Notepad, ready to copy from. <strong>Read the drafts against the images once</strong>: you stand behind them.</li>
+  <li>File Explorer open at the <code>samples</code> folder, so you can find it quickly in the folder picker.</li>
+  <li>Browser zoom to about 125 % (<kbd>Ctrl</kbd> + <kbd>+</kbd>) so the back of the room can read it. Close other tabs and mute notifications (Windows: Focus assist).</li>
+  <li>In Teams, <strong>share the browser window</strong>, not the whole screen. Test the sound and that the room can see the text.</li>
+  <li>Optional: record a full run-through (Teams recording or <kbd>Win</kbd> + <kbd>Alt</kbd> + <kbd>R</kbd>) as a video you can play if everything fails.</li>
+</ul>
+</div>
+
+<h2 id="act1">1. Why, and the numbers <span class="time">0:00 – 2:30</span></h2>
+<table>
+<caption>Opening</caption>
+<thead><tr><th scope="col">Do</th><th scope="col">Say</th></tr></thead>
+<tbody>
+<tr><td class="do">Start on the <em>results at a glance</em> tab.</td>
+<td class="say">“We publish a lot of PDFs and we have to make them accessible. Today that means sending them to a bureau, which is slow and expensive, and in practice it doesn’t always happen. So a backlog builds up and then arrives as one big invoice.”</td></tr>
+<tr><td class="do">Point at the four big numbers: 10 publications, 386 pages, <strong>12,956 → 136</strong> failed checks, <strong>4 of 10 pass completely</strong>.</td>
+<td class="say">“I built a tool that does the structural work automatically. These are our own published reports. Before: nearly 13,000 failed checks in the standard PDF/UA check. After the tool, 136. Four pass completely with no human work at all.”</td></tr>
+<tr><td class="do">Scroll the table. Pause on <em>Beretning</em> (3,367 → 43) and <em>Menneskerettigheder … menneskehandelsområdet</em> (1,617 → passes).</td>
+<td class="say">“What’s left is almost entirely image descriptions: 130 of the 136. That’s deliberate. Only a person who knows the publication can say what an image is for.”</td></tr>
+<tr><td class="do">Say who checks.</td>
+<td class="say">“The check is done by veraPDF, an independent open-source validator, not by my own code. And everything runs on this computer: nothing is uploaded anywhere.”</td></tr>
+</tbody></table>
+
+<h2 id="act2">2. Live: drag in the whole folder <span class="time">2:30 – 5:00</span></h2>
+<table>
+<caption>Processing live</caption>
+<thead><tr><th scope="col">Do</th><th scope="col">Say</th></tr></thead>
+<tbody>
+<tr><td class="do">Switch to the live tab (empty Library). Under <strong>Add PDFs</strong>, use <strong>Or add a whole folder</strong> and choose the <code>samples</code> folder. Confirm the browser’s “upload” question.</td>
+<td class="say">“Here is the library, empty. I’ll add a whole folder of our publications: Word and InDesign, Danish, English and Spanish.”</td></tr>
+<tr><td class="do">Watch the table fill. Statuses change from <em>Processing…</em> to results as files finish. About 40 seconds for all ten.</td>
+<td class="say">“Several are processed at once. The folder structure is kept. Some were already tagged, others, the InDesign exports, had no structure at all and the tool built it. Ten publications, 386 pages.”</td></tr>
+<tr><td class="do">When done, use the chips: <strong>Need images</strong>, <strong>Need review</strong>, <strong>Ready to export</strong>. Type “guide” in the filter box.</td>
+<td class="say">“The library tells me what each one still needs from a person. Nothing is hidden.”</td></tr>
+</tbody></table>
+<div class="box warn"><strong>If it is slow or stalls:</strong> keep talking over the numbers page, or switch to the ready tab (port 8766) and say “I processed these earlier”. See <a href="#wrong">if something goes wrong</a>.</div>
+
+<h2 id="act3">3. What did it do? <span class="time">5:00 – 8:00</span></h2>
+<table>
+<caption>The hero documents</caption>
+<thead><tr><th scope="col">Do</th><th scope="col">Say</th></tr></thead>
+<tbody>
+<tr><td class="do">Open <strong>CSDDD for non-EU stakeholders - Businesses.pdf</strong> (Word, 9 pages). Go to the <strong>Result</strong> tab.</td>
+<td class="say">“This Word report failed 19 checks as exported. The tool fixed the document title, the heading order, link descriptions and more. Now it passes. No one touched it.”</td></tr>
+<tr><td class="do">Open the <strong>Document</strong> tab. Show the list under <em>Things the tool guessed or wants you to check</em>. Tick them as you read two aloud.</td>
+<td class="say">“It also tells me what it guessed: the title came from the first page, the heading levels were renumbered. I confirm each one. The tool does the work; a person stays in charge.”</td></tr>
+<tr><td class="do">Back to the Library. Open <strong>Menneskeretlige perspektiver på menneskehandelsområdet</strong> (78 pages, Danish, InDesign). Go to the <strong>Pages</strong> tab, then page <strong>36</strong> (a table).</td>
+<td class="say">“78 pages, Danish, five tables, 1,617 failed checks originally. It passes. And here you can see what it understood: the page with every block numbered in reading order, and the table found with its header row.”</td></tr>
+<tr><td class="do">Open the <strong>Document</strong> tab. There is one item to confirm (the tool made the first row of each table a header). Look at the table on page 36 again, then tick it.</td>
+<td class="say">“It made a judgement call about the table headers, so it asks me to look. I looked, it’s right, I tick it. That’s the human check built into the workflow.”</td></tr>
+</tbody></table>
+
+<h2 id="act4">4. The human part: image descriptions <span class="time">8:00 – 11:00</span></h2>
+<table>
+<caption>Writing two image descriptions live</caption>
+<thead><tr><th scope="col">Do</th><th scope="col">Say</th></tr></thead>
+<tbody>
+<tr><td class="do">Library → open <strong>Børns oplevelser med vold …</strong> (10 pages). <strong>Images</strong> tab: two images, both charts.</td>
+<td class="say">“This is the part only a person can do. The tool finds every image, shows it large, shows where it sits on the page and the text near it.”</td></tr>
+<tr><td class="do">Click into the box. Paste the first draft from <code>alt-text-drafts.txt</code> (page 4). Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd>. The first save can pause a few seconds.</td>
+<td class="say">“I describe what matters: the chart type, the groups and the numbers. <kbd>Ctrl</kbd>+<kbd>Enter</kbd> saves and moves to the next image. For a chart, the point is the finding, not the colours.”</td></tr>
+<tr><td class="do">Second image: paste the page 6 draft, <kbd>Ctrl</kbd> + <kbd>Enter</kbd>. Note the tab now reads <em>Images ✓</em>.</td>
+<td class="say">“Two images, a minute of work. If an image is purely decoration, one button marks it <em>Decorative</em> and screen readers skip it.”</td></tr>
+<tr><td class="do"><strong>Document</strong> tab: the tool guessed the title from page 1; check it reads right and tick the item.</td>
+<td class="say">“Same here: it guessed the title, I confirm it.”</td></tr>
+<tr><td class="do">Click <strong>Validate and download accessible PDF</strong>. The <strong>Result</strong> tab shows <em>✓ Passes the automated PDF/UA-1 check (veraPDF)</em>.</td>
+<td class="say">“Now it passes. The tool only adds the PDF/UA stamp once the validator agrees: it never claims something it can’t back up.”</td></tr>
+</tbody></table>
+<div class="box"><strong>Why this one:</strong> two images means it finishes live, and the Danish charts show that descriptions need real judgement. Don’t do the Colombia queue live (8 photos); just show it exists.</div>
+
+<h2 id="act5">5. The tag editor <span class="time">11:00 – 14:00</span></h2>
+<table>
+<caption>When the automatic result needs a human touch</caption>
+<thead><tr><th scope="col">Do</th><th scope="col">Say</th></tr></thead>
+<tbody>
+<tr><td class="do">Open <strong>26.06.18 Policy Brief Colombia - DIGITAL.pdf</strong> → <strong>Pages</strong> tab → page <strong>15</strong> (a three-column table). Click <strong>Fit width</strong>.</td>
+<td class="say">“Sometimes the automatic result needs a human eye. This is the tag editor: the page on the right, every block numbered in the order a screen reader will read it, and the structure on the left.”</td></tr>
+<tr><td class="do">Click a table cell in the list. In <em>Selected block</em> change <strong>Cell type</strong> to <em>Header for its column</em>. Then press <kbd>Ctrl</kbd> + <kbd>Z</kbd>.</td>
+<td class="say">“Every edit can be undone. I can change a block’s type, move it earlier or later, merge blocks, mark something as decoration, or fix table headers.”</td></tr>
+<tr><td class="do">Click a text block, then press <kbd>Alt</kbd> + <kbd>↓</kbd> to move it down; press <kbd>Ctrl</kbd> + <kbd>Z</kbd>. Mention the arrow keys in the list.</td>
+<td class="say">“It works with the keyboard, too. An accessibility tool has to be accessible, so I tested the interface itself with an automated checker.”</td></tr>
+<tr><td class="do">Be honest about limits: open the <strong>Annual Report</strong> (86 pages) → <strong>Pages</strong> → page <strong>36</strong> (an infographic).</td>
+<td class="say">“This is where it struggles: infographics. The big numbers and their labels aren’t always read in the right order. A person fixes those. That’s what the editor is for.”</td></tr>
+</tbody></table>
+
+<h2 id="act6">6. The backlog: export everything <span class="time">14:00 – 16:00</span></h2>
+<table>
+<caption>One click for the finished ones</caption>
+<thead><tr><th scope="col">Do</th><th scope="col">Say</th></tr></thead>
+<tbody>
+<tr><td class="do">Library. Click <strong>Export all 5 that are ready…</strong> (the link under the heading: Fra-principper, the Adaptation Plans report, CSDDD, Menneskehandel and Børns). In the dialog, tick <em>Add “(accessible)” to the file names</em> and click <strong>Export</strong>.</td>
+<td class="say">“This is the backlog case. Everything that’s finished is validated again and bundled. (Five here; the rest still need image descriptions.) The ones that still need image descriptions are skipped and listed, so nothing half-done slips through.”</td></tr>
+<tr><td class="do">Wait for the results table. Click <strong>Download the zip file</strong>. Open the zip: show the folders and <code>report.html</code>.</td>
+<td class="say">“Accessible PDFs, in the same folder structure, and a report listing what happened to each one. That’s also our audit trail.”</td></tr>
+</tbody></table>
+
+<h2 id="act7">7. Honest limits, and what next <span class="time">16:00 – 18:00</span></h2>
+<div class="box">
+<p><strong>Say this plainly (it is what makes the rest credible):</strong></p>
+<ul>
+<li>“Passing the validator is strong evidence, <strong>not a certificate</strong>. It can’t tell if a description is meaningful or the reading order makes sense on a complicated page. A person still looks over every file.”</li>
+<li>“I tested it on ten publications. That’s a start, not proof.”</li>
+<li>“Scanned PDFs aren’t handled yet (they’re flagged). Infographics need manual work. It has only been tried in one browser and I haven’t tested it with a screen reader yet. I’d like a colleague who uses one to try it.”</li>
+</ul>
+<p><strong>Then the proposal:</strong></p>
+<ul>
+<li><strong>A pilot:</strong> 30 to 50 real documents with a few colleagues, measuring minutes per document against what the bureau costs and how long it takes.</li>
+<li><strong>Where it lives:</strong> today it runs locally on one computer. For a few colleagues in comms it would sit on an internal server with Microsoft sign-in, and that’s a conversation with Aske.</li>
+<li><strong>Fix it at the source:</strong> the reports show exactly what our InDesign and Word templates miss, so improving the templates would cut the human work further.</li>
+</ul></div>
+
+<h2 id="qa">Likely questions, straight answers</h2>
+<p class="q">“Is this WCAG-compliant?”</p>
+<p>It checks against PDF/UA-1, the PDF accessibility standard that WCAG relies on for documents, using an independent validator. WCAG conformance also needs human judgement (image descriptions, reading order, language), so we call it “passes the automated check”, never “certified”.</p>
+<p class="q">“Why not just use Acrobat Pro?”</p>
+<p>Acrobat’s checker and manual tagging is exactly the slow work this automates. This tool does the structure in bulk, offline, built around our own InDesign and Word output, and keeps a person for the judgement parts. Acrobat is still fine for spot-checks.</p>
+<p class="q">“What about the bureau?”</p>
+<p>They remain an option for hard cases or sign-off. The question for management is what assurance we want (a statement, someone accountable) and how much volume can be handled in-house. The pilot gives the numbers to decide.</p>
+<p class="q">“Is it secure? GDPR?”</p>
+<p>In local mode nothing leaves the computer. A server version would run inside our own infrastructure with sign-in restricted to a group and automatic deletion of old files. We’d agree the details with Aske.</p>
+<p class="q">“Who maintains it?”</p>
+<p>Be straight: today it’s one person plus an AI assistant that helped write and test it. If we adopt it, it needs a named owner and time set aside. There is documentation, a built-in self-test and a repeatable build, but it’s a real responsibility.</p>
+<p class="q">“What does it cost?”</p>
+<p>No licences: it’s built on open-source components. The costs are the owner’s time, hosting, and perhaps a code-signing certificate so Windows doesn’t warn on first run.</p>
+<p class="q">“Danish and Spanish?”</p>
+<p>Yes: it detects Danish, English and Spanish and sets the document language. The tool’s own screens are English only for now.</p>
+<p class="q">“Can I try it?”</p>
+<p>Not yet. First a pilot with a few people, and agreement from IT on where it runs.</p>
+
+<h2 id="wrong">If something goes wrong</h2>
+<table>
+<caption>Quick recoveries</caption>
+<thead><tr><th scope="col">Problem</th><th scope="col">Do this</th></tr></thead>
+<tbody>
+<tr><td>Processing is slow or stuck</td><td>Say “let me show you one I processed earlier”, and switch to the ready tab (port 8766). Everything you need is there, including the image queue.</td></tr>
+<tr><td>The first save pauses for a few seconds</td><td>Normal: the server is opening the document. Keep talking; it won’t happen again for that document.</td></tr>
+<tr><td>The page shows “Please use the link you were given”</td><td>Use the address printed in the black start-up window, or close it and run the start file again.</td></tr>
+<tr><td>Port already in use</td><td>Close old start-up windows. Or run <code>.venv\Scripts\python -m pdfa11y web --port 8777</code>.</td></tr>
+<tr><td>Teams drops or lags</td><td>Stop sharing, re-share just the browser window. Fall back to the recorded video if you made one.</td></tr>
+<tr><td>You made a mess</td><td>Run <code>demo\reset-demo.bat</code> between demos, never during one. During a demo, just open another document.</td></tr>
+<tr><td>A question you can’t answer</td><td>“I don’t know yet, I’ll find out and tell you”. It’s a stronger answer than a guess.</td></tr>
+</tbody></table>
+
+<h2 id="private">Notes for you <span class="muted">(not for the room)</span></h2>
+<div class="box">
+<ul>
+<li><strong>Write down reactions.</strong> Which part made people lean in? Which questions came up twice? That tells you what the pilot should test.</li>
+<li><strong>Collect the pilot numbers now.</strong> From the bureau’s invoices: price per document or page, typical turnaround, and how many PDFs per year. From the tool: minutes per document. That’s your business case.</li>
+<li><strong>Questions for Aske:</strong> can it run as a small Linux container on the internal server or in Azure? Sign-in through Entra ID limited to a group? How long may unpublished documents be stored? How many CPU cores and how much memory? Who patches and monitors it, and what address and certificate? Is there antivirus scanning for uploads? And: may a no-install folder run on work laptops at all?</li>
+<li><strong>Don’t promise dates, savings or compliance.</strong> Promise a pilot and honest numbers.</li>
+<li><strong>Ownership:</strong> before the department sees this, be sure you know who owns it (your contract, your union’s legal helpline).</li>
+</ul></div>
+
+</main>
+</body>
+</html>

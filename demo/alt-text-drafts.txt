@@ -1,0 +1,40 @@
+DRAFT IMAGE DESCRIPTIONS FOR THE DEMO
+=====================================
+These are DRAFTS written by looking at each image. Check each one against the image on screen before you use it,
+and say so in the room: the tool never writes descriptions for you, a person decides.
+Page numbers are the ones the tool shows in its "Images" list.
+
+
+1) Børns oplevelser med vold og deres mulighed for at sige fra (Danish, 2 images)   <-- use this one LIVE
+---------------------------------------------------------------------------------------------------------
+
+Page 4 (bar chart: experience of violence):
+
+Søjlediagram over andelen af børn i 6.-9. klasse, der selv har oplevet vold, opdelt på type af vold og køn. Fysisk vold: 22 % af alle elever, 28 % af drengene og 16 % af pigerne. Psykisk vold: 11 % af alle elever, 10 % af drengene og 11 % af pigerne.
+
+Page 6 (bar chart: acting on rights violations):
+
+Søjlediagram over børn, der har oplevet, at deres rettigheder blev overtrådt, opdelt på kendskab til egne rettigheder. Andelen, der handlede: 83 % ved højt kendskab, 81 % ved middel og 66 % ved lavt kendskab. Andelen, der sagde fra: 30 % ved højt kendskab, 17 % ved middel og 11 % ved lavt kendskab.
+
+(Short version for a quicker demo, page 4:  "Søjlediagram: 22 % af eleverne har selv oplevet fysisk vold og 11 % psykisk vold. Drenge oplever mest fysisk vold (28 %), piger mindst (16 %).")
+
+
+2) 26.06.18 Policy Brief Colombia (Spanish, 8 photos)   <-- only if you want to show a longer queue
+---------------------------------------------------------------------------------------------------
+Page 1:   Un pescador con sombrero de paja sostiene una red de pesca junto a pequeñas embarcaciones en la costa.
+Page 3:   Las manos de un pescador sacan un pez plateado enredado en una red de pesca de color amarillo y naranja.
+Page 6:   Una mujer con ropa roja pesca desde una pequeña barca redonda en aguas tranquilas, con vegetación al fondo.
+Page 7:   Canoas de madera varadas en la orilla, frente a casas de colores con techos de zinc y palmeras.
+Page 10:  Un pescador de pie en una canoa sostiene una red de pesca en un río rodeado de árboles.
+Page 13:  Dos pescadores revisan y arreglan una red junto a una lancha varada en la playa.
+Page 16:  Un pescador con gorra y camisa a cuadros recoge una red de pesca en la orilla del mar.
+Page 19:  Una mujer se inclina sobre miles de pescaditos plateados puestos a secar al aire libre sobre la hierba.
+
+(A real description would also say what the photo is FOR in the publication: small-scale fishing communities in Colombia.
+Better descriptions usually come from the people who chose the photos.)
+
+
+3) A decorative example to show the "Decorative" button
+-------------------------------------------------------
+Any purely decorative element (a background photo, a divider, an ornament) can be marked Decorative instead of described.
+In the Annual Report most full-page background images are already treated as decoration by the tool (it lists them for you to check).

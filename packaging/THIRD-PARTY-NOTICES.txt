@@ -1,0 +1,23 @@
+PDF Accessibility Studio - third-party components
+=================================================
+This program bundles the open-source components below. Each remains under its own licence; the licence
+texts ship with the components (see the folders next to this file and each project's website). Names and
+licences are listed from the projects' published information: have them confirmed before redistributing
+this program OUTSIDE your organisation.
+
+  veraPDF (PDF/UA validator)        veraPDF Consortium      GPL-3.0-or-later / MPL-2.0 (dual)   verapdf.org
+  Eclipse Temurin JRE 21 (Java)     Eclipse Adoptium        GPL-2.0 with Classpath Exception     adoptium.net
+  Qt for Python (PySide6 / Qt 6)    The Qt Company          LGPL-3.0 (used unmodified, dynamically linked)
+  pikepdf (uses the qpdf library)   James R. Barlow         MPL-2.0 (qpdf: Apache-2.0)
+  pdfminer.six                      Pdfminer.six developers MIT
+  pypdfium2 (PDFium)                pypdfium2-team          Apache-2.0 or BSD-3-Clause (PDFium: BSD-3-Clause)
+  Pillow                            Jeffrey A. Clark        MIT-CMU (HPND)
+  lxml                              lxml developers         BSD-3-Clause
+  Starlette, uvicorn, h11           Encode / contributors   BSD-3-Clause / MIT   (browser version)
+  anyio, sniffio                    contributors            MIT / Apache-2.0
+  python-multipart                  Andrew Dunham           Apache-2.0
+  cryptography, cffi, packaging     respective authors      Apache-2.0 / BSD
+  Python                            Python Software Fdn.    PSF-2.0
+  PyInstaller (packaging tool)      PyInstaller team        GPL-2.0 with bootloader exception
+
+You may replace the bundled Qt libraries with your own build of the same version (LGPL requirement).

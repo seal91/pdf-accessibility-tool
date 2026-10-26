@@ -1,0 +1,246 @@
+[
+  {
+    "file": "2026_06_29_Annual-Report2025_final-web.pdf",
+    "area": "International",
+    "source": "InDesign",
+    "pages": 86,
+    "size_mb": 9.99,
+    "tagged_before": false,
+    "before_checks": 6023,
+    "before_rules": 11,
+    "before_pass": false,
+    "after_checks": 42,
+    "after_rules": 2,
+    "after_pass": false,
+    "after_rules_text": [
+      [
+        "Images need alt text (or must be marked as decorative)",
+        41
+      ],
+      [
+        "The PDF/UA identifier is not set",
+        1
+      ]
+    ],
+    "images_needing_alt": 41,
+    "seconds": 24.9,
+    "action": "Tagged + fixed",
+    "stamped": false
+  },
+  {
+    "file": "26.06.18 Policy Brief Colombia - DIGITAL.pdf",
+    "area": "International",
+    "source": "InDesign",
+    "pages": 24,
+    "size_mb": 1.71,
+    "tagged_before": false,
+    "before_checks": 1343,
+    "before_rules": 10,
+    "before_pass": false,
+    "after_checks": 9,
+    "after_rules": 2,
+    "after_pass": false,
+    "after_rules_text": [
+      [
+        "Images need alt text (or must be marked as decorative)",
+        8
+      ],
+      [
+        "The PDF/UA identifier is not set",
+        1
+      ]
+    ],
+    "images_needing_alt": 8,
+    "seconds": 4.6,
+    "action": "Tagged + fixed",
+    "stamped": false
+  },
+  {
+    "file": "Human Rights Impact Assessment of Health Sector Digitalisation in Kenya final for layout_Web.pdf",
+    "area": "International",
+    "source": "InDesign",
+    "pages": 28,
+    "size_mb": 6.04,
+    "tagged_before": true,
+    "before_checks": 334,
+    "before_rules": 11,
+    "before_pass": false,
+    "after_checks": 20,
+    "after_rules": 2,
+    "after_pass": false,
+    "after_rules_text": [
+      [
+        "Images need alt text (or must be marked as decorative)",
+        19
+      ],
+      [
+        "The PDF/UA identifier is not set",
+        1
+      ]
+    ],
+    "images_needing_alt": 19,
+    "seconds": 5.0,
+    "action": "Fixed",
+    "stamped": false
+  },
+  {
+    "file": "CSDDD for non-EU stakeholders - Businesses.pdf",
+    "area": "International",
+    "source": "Word",
+    "pages": 9,
+    "size_mb": 0.17,
+    "tagged_before": true,
+    "before_checks": 19,
+    "before_rules": 5,
+    "before_pass": false,
+    "after_checks": 0,
+    "after_rules": 0,
+    "after_pass": true,
+    "after_rules_text": [],
+    "images_needing_alt": 0,
+    "seconds": 6.9,
+    "action": "Fixed",
+    "stamped": true
+  },
+  {
+    "file": "National-Adaptation-Plans-and-Human-Rights-a.pdf",
+    "area": "International",
+    "source": "Word",
+    "pages": 27,
+    "size_mb": 1.28,
+    "tagged_before": true,
+    "before_checks": 0,
+    "before_rules": 0,
+    "before_pass": true,
+    "after_checks": 0,
+    "after_rules": 0,
+    "after_pass": true,
+    "after_rules_text": [],
+    "images_needing_alt": 0,
+    "seconds": 4.9,
+    "action": "Fixed",
+    "stamped": false
+  },
+  {
+    "file": "2025_Fra-principper-til-forandring_En-guide-til-en-menneskerettighedsbaseret-tilgang-til-data-a.pdf",
+    "area": "National",
+    "source": "InDesign",
+    "pages": 20,
+    "size_mb": 0.65,
+    "tagged_before": true,
+    "before_checks": 0,
+    "before_rules": 0,
+    "before_pass": true,
+    "after_checks": 0,
+    "after_rules": 0,
+    "after_pass": true,
+    "after_rules_text": [],
+    "images_needing_alt": 0,
+    "seconds": 4.4,
+    "action": "Fixed",
+    "stamped": false
+  },
+  {
+    "file": "Beretning Menneskerettigheder i Danmark 2025 05.02.2026.pdf",
+    "area": "National",
+    "source": "InDesign",
+    "pages": 60,
+    "size_mb": 13.01,
+    "tagged_before": false,
+    "before_checks": 3367,
+    "before_rules": 10,
+    "before_pass": false,
+    "after_checks": 43,
+    "after_rules": 2,
+    "after_pass": false,
+    "after_rules_text": [
+      [
+        "Images need alt text (or must be marked as decorative)",
+        42
+      ],
+      [
+        "The PDF/UA identifier is not set",
+        1
+      ]
+    ],
+    "images_needing_alt": 42,
+    "seconds": 23.3,
+    "action": "Tagged + fixed",
+    "stamped": false
+  },
+  {
+    "file": "Menneskeretlige perspektiver på menneskehandelsområdet, januar 2026.pdf",
+    "area": "National",
+    "source": "InDesign",
+    "pages": 78,
+    "size_mb": 1.8,
+    "tagged_before": true,
+    "before_checks": 1617,
+    "before_rules": 7,
+    "before_pass": false,
+    "after_checks": 0,
+    "after_rules": 0,
+    "after_pass": true,
+    "after_rules_text": [],
+    "images_needing_alt": 0,
+    "seconds": 14.0,
+    "action": "Fixed",
+    "stamped": true
+  },
+  {
+    "file": "Bag byrådets døre, Institut for Menneskerettigheder, marts 2026.pdf",
+    "area": "National",
+    "source": "Word",
+    "pages": 44,
+    "size_mb": 2.23,
+    "tagged_before": true,
+    "before_checks": 161,
+    "before_rules": 7,
+    "before_pass": false,
+    "after_checks": 19,
+    "after_rules": 2,
+    "after_pass": false,
+    "after_rules_text": [
+      [
+        "Images need alt text (or must be marked as decorative)",
+        18
+      ],
+      [
+        "The PDF/UA identifier is not set",
+        1
+      ]
+    ],
+    "images_needing_alt": 18,
+    "seconds": 6.6,
+    "action": "Fixed",
+    "stamped": false
+  },
+  {
+    "file": "Børns oplevelser med vold og deres mulighed for at sige fra. Analysenotat 14092026.pdf",
+    "area": "National",
+    "source": "Word",
+    "pages": 10,
+    "size_mb": 0.21,
+    "tagged_before": true,
+    "before_checks": 92,
+    "before_rules": 5,
+    "before_pass": false,
+    "after_checks": 3,
+    "after_rules": 2,
+    "after_pass": false,
+    "after_rules_text": [
+      [
+        "Images need alt text (or must be marked as decorative)",
+        2
+      ],
+      [
+        "The PDF/UA identifier is not set",
+        1
+      ]
+    ],
+    "images_needing_alt": 2,
+    "seconds": 5.3,
+    "action": "Fixed",
+    "stamped": false
+  }
+]

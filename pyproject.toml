@@ -1,0 +1,30 @@
+[project]
+name = "pdfa11y"
+version = "0.1.0"
+description = "Local, offline PDF accessibility remediation toolkit (PDF/UA-1, WCAG 2.1 AA)"
+requires-python = ">=3.12"
+dependencies = [
+    "pikepdf>=10.0",
+    "pypdfium2>=5.0",
+    "pdfminer.six>=20250000",
+    "starlette>=0.40",
+    "uvicorn>=0.30",
+    "python-multipart>=0.0.9",
+]
+
+[project.optional-dependencies]
+desktop = ["PySide6>=6.6"]                       # the desktop window (not needed for the browser version or a server)
+dev = ["pytest>=8", "httpx>=0.27", "pyinstaller>=6"]
+
+[project.scripts]
+pdfa11y = "pdfa11y.__main__:main"
+
+[project.gui-scripts]
+pdfa11y-gui = "pdfa11y.gui.main:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

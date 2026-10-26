@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PDF Accessibility Studio</title>
+  <link rel="icon" href="/static/icon.png" type="image/png">
+  <link rel="stylesheet" href="/static/style.css">
+  <script type="module" src="/static/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="topbar">
+    <a class="brand" href="#/"><img src="/static/icon.png" alt="" width="28" height="28"> PDF Accessibility Studio</a>
+    <nav aria-label="Main">
+      <a href="#/" id="nav-library">Library</a>
+    </nav>
+    <span class="grow"></span>
+    <button type="button" id="quit" hidden>Quit</button>
+  </header>
+  <main id="main" tabindex="-1"></main>
+  <div id="live" class="sr-only" role="status" aria-live="polite"></div>
+  <dialog id="dialog" aria-labelledby="dialog-title">
+    <form method="dialog">
+      <h2 id="dialog-title"></h2>
+      <div id="dialog-body"></div>
+      <div class="dialog-actions" id="dialog-actions"></div>
+    </form>
+  </dialog>
+  <noscript><p>This tool needs JavaScript. Please enable it in your browser.</p></noscript>
+</body>
+</html>

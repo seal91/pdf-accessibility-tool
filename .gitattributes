@@ -1,0 +1,7 @@
+# Shell scripts and container files must keep Unix line endings, or they fail on Linux.
+*.sh       text eol=lf
+Dockerfile text eol=lf
+*.yml      text eol=lf
+*.json     text eol=lf
+# Windows launchers keep Windows line endings.
+*.bat      text eol=crlf
